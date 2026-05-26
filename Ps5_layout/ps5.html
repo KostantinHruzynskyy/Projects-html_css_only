@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PS5 Dashboard DOM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="ps-shell">
+      <header class="ps-topbar">
+        <nav class="ps-tabs">
+          <button class="tab-btn active" data-view="Games">Games</button>
+          <button class="tab-btn" data-view="Media">Media</button>
+        </nav>
+
+        <div class="top-actions">
+          <button id="searchBtn" class="icon-btn" type="button" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button id="settingsBtn" class="icon-btn" type="button" aria-label="Settings">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <button id="profileBtn" class="icon-btn" type="button" aria-label="Profile">
+            <i class="fa-solid fa-face-smile"></i>
+          </button>
+          <button id="clockBtn" class="clock" type="button">4:20 AM</button>
+        </div>
+      </header>
+
+      <section id="quickPanel" class="quick-panel d-none">
+        <input id="quickSearchInput" class="form-control" type="search" placeholder="Search games, friends, widgets">
+        <p id="quickPanelText">Search ready.</p>
+      </section>
+
+      <section class="rail-shell" aria-label="Game rail">
+        <button id="scrollLeftBtn" class="rail-btn" type="button" aria-label="Scroll left">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div id="gameRow" class="game-row">
+          <button class="game-card selected" type="button" data-title="Welcome" data-kind="Home" data-theme="home" data-info="Your main PS5 dashboard.">
+            <i class="fa-brands fa-playstation"></i>
+          </button>
+          <button class="game-card cover horizon" type="button" data-title="Horizon Forbidden West" data-kind="Game" data-theme="horizon" data-info="Open-world adventure ready to launch.">
+            <span>Horizon</span>
+          </button>
+          <button class="game-card cover astro" type="button" data-title="Astro Bot" data-kind="Game" data-theme="astro" data-info="Fast, colorful platform action.">
+            <span>Astro Bot</span>
+          </button>
+          <button class="game-card cover skyrim" type="button" data-title="Skyrim" data-kind="Wishlist" data-theme="skyrim" data-info="Added to your wishlist. Fus Ro Dah.">
+            <span>Skyrim</span>
+          </button>
+          <button class="game-card cover lastofus" type="button" data-title="The Last of Us" data-kind="Game" data-theme="lastofus" data-info="Story game selected from your library.">
+            <span>The Last of Us</span>
+          </button>
+          <button class="game-card cover spiderman" type="button" data-title="Spider-Man 2" data-kind="Game" data-theme="spiderman" data-info="Fast swinging action from your PS5 library.">
+            <span>Spider-Man 2</span>
+          </button>
+          <button class="game-card cover gow" type="button" data-title="God of War Ragnarok" data-kind="Game" data-theme="gow" data-info="Norse adventure selected.">
+            <span>God of War</span>
+          </button>
+          <button class="game-card cover gran" type="button" data-title="Gran Turismo 7" data-kind="Game" data-theme="gran" data-info="Garage open, race ready.">
+            <span>GT7</span>
+          </button>
+          <button class="game-card cover fifa" type="button" data-title="EA Sports FC" data-kind="Game" data-theme="fifa" data-info="Football selected from the home screen.">
+            <span>EA FC</span>
+          </button>
+          <button class="game-card utility" type="button" data-title="Game Library" data-kind="Library" data-theme="library" data-info="All installed and purchased games.">
+            <i class="fa-solid fa-table-cells-large"></i>
+          </button>
+          <button class="game-card utility" type="button" data-title="Controller" data-kind="Device" data-theme="controller" data-info="DualSense connected and ready.">
+            <i class="fa-solid fa-gamepad"></i>
+          </button>
+        </div>
+
+        <button id="scrollRightBtn" class="rail-btn" type="button" aria-label="Scroll right">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </section>
+
+      <section id="selectedArea" class="selected-area">
+        <div>
+          <p id="selectedKind">Home</p>
+          <h1 id="selectedTitle">Welcome</h1>
+        </div>
+        <button id="openScreenBtn" class="screen-btn" type="button">Open Screen</button>
+      </section>
+
+      <section class="dashboard-grid">
+        <article id="friendsWidget" class="widget friends-widget">
+          <div class="widget-head">
+            <div>
+              <i class="fa-solid fa-user-group"></i>
+              <span>Online Friends</span>
+            </div>
+            <strong><span class="green-dot"></span> <span id="friendsCount">0</span></strong>
+          </div>
+
+          <div class="friend-form">
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fa-solid fa-headset"></i>
+              </span>
+              <input id="nicknameInput" class="form-control" type="text" placeholder="Nickname">
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fa-solid fa-hashtag"></i>
+              </span>
+              <input id="friendNumberInput" class="form-control" type="number" placeholder="Friend Number">
+            </div>
+            <div class="friend-buttons">
+              <button id="addFriendBtn" type="button">Add</button>
+              <button id="removeFriendBtn" type="button">Remove</button>
+              <button id="searchFriendBtn" type="button">Search</button>
+              <button id="showFriendsBtn" class="primary" type="button">Hide</button>
+            </div>
+          </div>
+
+          <p id="statusMessage" class="status-message">Dashboard loaded.</p>
+          <div id="wrapperCards" class="friends-list"></div>
+        </article>
+
+        <article id="screenWidget" class="widget screen-widget">
+          <div class="widget-head">
+            <div>
+              <i class="fa-solid fa-display"></i>
+              <span>Screen</span>
+            </div>
+          </div>
+          <div class="screen-preview">
+            <p id="screenKind">Home</p>
+            <h2 id="screenTitle">Welcome</h2>
+            <span id="screenInfo">Your main PS5 dashboard.</span>
+          </div>
+        </article>
+
+        <article id="accessWidget" class="widget access-widget">
+          <div class="widget-head">
+            <div>
+              <i class="fa-solid fa-universal-access"></i>
+              <span>Accessibility</span>
+            </div>
+          </div>
+          <p id="accessText">Make your PS5 more usable for you.</p>
+        </article>
+
+        <article class="widget battery-widget">
+          <div class="battery-circle active">
+            <i class="fa-solid fa-gamepad"></i>
+            <small>Pad 1</small>
+          </div>
+          <div class="battery-circle warning">
+            <i class="fa-solid fa-gamepad"></i>
+            <small>Pad 2</small>
+          </div>
+          <div class="battery-circle active">
+            <i class="fa-solid fa-headphones"></i>
+            <small>Pulse</small>
+          </div>
+        </article>
+
+        <article id="trophiesWidget" class="widget trophies-widget">
+          <div class="widget-head">
+            <div>
+              <i class="fa-solid fa-trophy"></i>
+              <span>Trophies</span>
+            </div>
+            <strong>Total: <span id="trophyTotal">380</span></strong>
+          </div>
+          <div class="trophy-row">
+            <span><i class="fa-solid fa-award platinum"></i>1</span>
+            <span><i class="fa-solid fa-trophy gold"></i>20</span>
+            <span><i class="fa-solid fa-medal silver"></i>67</span>
+            <span><i class="fa-solid fa-medal bronze"></i>292</span>
+          </div>
+          <div class="progress-line">
+            <span id="trophyProgress"></span>
+          </div>
+        </article>
+
+        <article id="wishlistWidget" class="widget wishlist-widget">
+          <div class="widget-head">
+            <div>
+              <i id="wishlistHeart" class="fa-solid fa-heart"></i>
+              <span>Wishlist</span>
+            </div>
+          </div>
+          <h2>Skyrim</h2>
+          <p id="wishlistText">Click to save this game.</p>
+        </article>
+      </section>
+    </main>
+
+    <section id="screenOverlay" class="screen-overlay d-none">
+      <div class="overlay-card">
+        <button id="closeScreenBtn" class="close-screen" type="button">Close</button>
+        <p id="overlayKind">Home</p>
+        <h2 id="overlayTitle">Welcome</h2>
+        <span id="overlayInfo">Your main PS5 dashboard.</span>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
