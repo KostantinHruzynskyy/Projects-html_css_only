@@ -1,0 +1,595 @@
+(full) 
+linkedin-clone/
+│
+├── index.html
+├── style.css
+└── images/
+
+//---------------------------------//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Clone</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#f3f2ef;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 6%;
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    background:#0a66c2;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+    border-radius:6px;
+}
+
+.search-box{
+    background:#eef3f8;
+    padding:10px 15px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.search-box input{
+    border:none;
+    background:none;
+    outline:none;
+    width:250px;
+}
+
+.nav-center{
+    display:flex;
+    gap:35px;
+}
+
+.nav-center a{
+    text-decoration:none;
+    color:#666;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+}
+
+.nav-center i{
+    font-size:20px;
+}
+
+.nav-right img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+
+/* MAIN LAYOUT */
+
+.container{
+    max-width:1400px;
+    margin:25px auto;
+    display:grid;
+    grid-template-columns:280px 1fr 320px;
+    gap:25px;
+    padding:0 20px;
+}
+
+/* LEFT SIDEBAR */
+
+.left-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.cover{
+    height:90px;
+    background:url('https://picsum.photos/seed/banner/800/300');
+    background-size:cover;
+    background-position:center;
+}
+
+.profile-pic{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    border:4px solid white;
+    margin-left:20px;
+    margin-top:-45px;
+}
+
+.profile-info{
+    padding:15px 20px;
+}
+
+.profile-info h3{
+    margin-bottom:5px;
+}
+
+.profile-info p{
+    color:#666;
+    font-size:14px;
+}
+
+.stats{
+    border-top:1px solid #eee;
+    margin-top:15px;
+    padding-top:15px;
+}
+
+.stat{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.premium{
+    background:white;
+    margin-top:15px;
+    border-radius:12px;
+    padding:20px;
+}
+
+/* FEED */
+
+.feed-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.post-start{
+    display:flex;
+    gap:15px;
+}
+
+.post-start img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+
+.post-start input{
+    flex:1;
+    border:1px solid #ccc;
+    border-radius:30px;
+    padding:12px 20px;
+}
+
+.post-options{
+    display:flex;
+    justify-content:space-around;
+    margin-top:15px;
+}
+
+.post-options button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    color:#666;
+    font-weight:600;
+}
+
+.post{
+    background:white;
+    border-radius:12px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+.post-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:20px;
+}
+
+.post-header img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+}
+
+.post-header h4{
+    margin-bottom:3px;
+}
+
+.post-header span{
+    color:#777;
+    font-size:14px;
+}
+
+.post-content{
+    padding:0 20px 20px;
+    line-height:1.6;
+}
+
+.post-image{
+    width:100%;
+    display:block;
+}
+
+.post-footer{
+    padding:15px 20px;
+}
+
+.reactions{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.actions{
+    border-top:1px solid #eee;
+    padding-top:10px;
+    display:flex;
+    justify-content:space-around;
+}
+
+.actions button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    color:#666;
+    font-weight:600;
+}
+
+/* RIGHT SIDEBAR */
+
+.right-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.right-card h3{
+    margin-bottom:15px;
+}
+
+.news-item{
+    margin-bottom:15px;
+}
+
+.news-item p{
+    color:#666;
+    font-size:14px;
+}
+
+.person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.person img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+
+.follow-btn{
+    margin-top:5px;
+    padding:6px 15px;
+    border:1px solid #0a66c2;
+    background:none;
+    color:#0a66c2;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+.container{
+    grid-template-columns:1fr;
+}
+
+.left-sidebar,
+.right-sidebar{
+    display:none;
+}
+
+}
+
+@media(max-width:768px){
+
+.search-box{
+    display:none;
+}
+
+.nav-center{
+    gap:15px;
+}
+
+.nav-center span{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header class="navbar">
+
+<div class="nav-left">
+<div class="logo">in</div>
+
+<div class="search-box">
+<i class="fas fa-search"></i>
+<input type="text" placeholder="Search">
+</div>
+</div>
+
+<div class="nav-center">
+<a href="#"><i class="fas fa-home"></i><span>Home</span></a>
+<a href="#"><i class="fas fa-user-group"></i><span>Network</span></a>
+<a href="#"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
+<a href="#"><i class="fas fa-message"></i><span>Messages</span></a>
+<a href="#"><i class="fas fa-bell"></i><span>Notifications</span></a>
+</div>
+
+<div class="nav-right">
+<img src="https://picsum.photos/seed/me/100/100">
+</div>
+
+</header>
+
+<div class="container">
+
+<!-- LEFT -->
+
+<aside class="left-sidebar">
+
+<div class="left-card">
+
+<div class="cover"></div>
+
+<img class="profile-pic"
+src="https://picsum.photos/seed/profile/200/200">
+
+<div class="profile-info">
+
+<h3>John Doe</h3>
+<p>Frontend Developer</p>
+<p>Turin, Italy</p>
+
+<div class="stats">
+
+<div class="stat">
+<span>Profile Views</span>
+<strong>1,543</strong>
+</div>
+
+<div class="stat">
+<span>Connections</span>
+<strong>500+</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="premium">
+<h4>Grow your career</h4>
+<p>Try Premium for free.</p>
+</div>
+
+</aside>
+
+<!-- FEED -->
+
+<main>
+
+<div class="feed-card">
+
+<div class="post-start">
+
+<img src="https://picsum.photos/seed/me/100/100">
+
+<input type="text"
+placeholder="Start a post">
+
+</div>
+
+<div class="post-options">
+
+<button><i class="fas fa-image"></i> Photo</button>
+<button><i class="fas fa-video"></i> Video</button>
+<button><i class="fas fa-calendar"></i> Event</button>
+<button><i class="fas fa-newspaper"></i> Article</button>
+
+</div>
+
+</div>
+
+<!-- POST 1 -->
+
+<div class="post">
+
+<div class="post-header">
+
+<img src="https://picsum.photos/seed/user1/100/100">
+
+<div>
+<h4>Sarah Johnson</h4>
+<span>UI/UX Designer</span>
+</div>
+
+</div>
+
+<div class="post-content">
+Excited to share my latest dashboard design concept.
+Feedback and suggestions are welcome!
+</div>
+
+<img class="post-image"
+src="https://picsum.photos/seed/post1/900/500">
+
+<div class="post-footer">
+
+<div class="reactions">
+👍 1,254 Likes · 💬 78 Comments
+</div>
+
+<div class="actions">
+<button>Like</button>
+<button>Comment</button>
+<button>Share</button>
+<button>Send</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- POST 2 -->
+
+<div class="post">
+
+<div class="post-header">
+
+<img src="https://picsum.photos/seed/user2/100/100">
+
+<div>
+<h4>Michael Brown</h4>
+<span>Software Engineer</span>
+</div>
+
+</div>
+
+<div class="post-content">
+Just completed a full-stack application using
+React, Node.js and PostgreSQL.
+</div>
+
+<img class="post-image"
+src="https://picsum.photos/seed/post2/900/500">
+
+<div class="post-footer">
+
+<div class="reactions">
+👍 876 Likes · 💬 42 Comments
+</div>
+
+<div class="actions">
+<button>Like</button>
+<button>Comment</button>
+<button>Share</button>
+<button>Send</button>
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- RIGHT -->
+
+<aside class="right-sidebar">
+
+<div class="right-card">
+
+<h3>LinkedIn News</h3>
+
+<div class="news-item">
+<strong>AI hiring surges globally</strong>
+<p>4h ago • 2,453 readers</p>
+</div>
+
+<div class="news-item">
+<strong>Remote jobs continue growth</strong>
+<p>8h ago • 1,822 readers</p>
+</div>
+
+<div class="news-item">
+<strong>Frontend skills in demand</strong>
+<p>12h ago • 1,091 readers</p>
+</div>
+
+</div>
+
+<div class="right-card">
+
+<h3>People you may know</h3>
+
+<div class="person">
+<img src="https://picsum.photos/seed/p1/100/100">
+<div>
+<h4>Emma Wilson</h4>
+<button class="follow-btn">Connect</button>
+</div>
+</div>
+
+<div class="person">
+<img src="https://picsum.photos/seed/p2/100/100">
+<div>
+<h4>David Clark</h4>
+<button class="follow-btn">Connect</button>
+</div>
+</div>
+
+<div class="person">
+<img src="https://picsum.photos/seed/p3/100/100">
+<div>
+<h4>Sophia Lee</h4>
+<button class="follow-btn">Connect</button>
+</div>
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+</body>
+</html>
