@@ -1,0 +1,182 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    background:#003b7a;
+    color:white;
+    padding:18px 0;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo h2{
+    font-size:24px;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.login-btn{
+    background:white;
+    color:#003b7a;
+    border:none;
+    padding:10px 20px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.hero{
+    background:linear-gradient(135deg,#004a99,#0066cc);
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.search-box input{
+    flex:1;
+    padding:15px;
+    border:none;
+    border-radius:8px 0 0 8px;
+}
+
+.search-box button{
+    border:none;
+    padding:15px 30px;
+    background:#ffb000;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:0 8px 8px 0;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin:60px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h3{
+    color:#003b7a;
+    margin-bottom:10px;
+}
+
+.news{
+    background:white;
+    padding:60px 0;
+}
+
+.news h2{
+    text-align:center;
+    margin-bottom:35px;
+    color:#003b7a;
+}
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.news-grid article{
+    padding:25px;
+    border-left:5px solid #0066cc;
+    background:#f7f9fc;
+    border-radius:8px;
+}
+
+.news-grid h4{
+    margin-bottom:10px;
+}
+
+footer{
+    background:#002f61;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .search-box input{
+        border-radius:8px;
+        margin-bottom:10px;
+    }
+
+    .search-box button{
+        border-radius:8px;
+    }
+}
