@@ -1,0 +1,153 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fafafa;
+}
+
+.app{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:260px;
+    background:white;
+    border-right:1px solid #ddd;
+    padding:30px 20px;
+    position:fixed;
+    height:100vh;
+}
+
+.logo{
+    margin-bottom:40px;
+    font-size:28px;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.sidebar nav a{
+    text-decoration:none;
+    color:#222;
+    font-size:18px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+/* Main */
+
+main{
+    margin-left:260px;
+    width:100%;
+    max-width:900px;
+    padding:30px;
+}
+
+/* Stories */
+
+.stories{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:20px;
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+}
+
+.story{
+    text-align:center;
+}
+
+.story img{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    padding:3px;
+    border:3px solid #ff3d77;
+}
+
+.story span{
+    display:block;
+    margin-top:5px;
+    font-size:14px;
+}
+
+/* Post */
+
+.post{
+    background:white;
+    border:1px solid #ddd;
+    margin-top:30px;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.post-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px;
+}
+
+.post-header img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+}
+
+.post-image{
+    width:100%;
+    display:block;
+}
+
+.actions{
+    display:flex;
+    gap:20px;
+    padding:15px;
+    font-size:24px;
+}
+
+.post p{
+    padding:0 15px 15px;
+}
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:70px;
+    }
+
+    .sidebar .logo{
+        display:none;
+    }
+
+    .sidebar nav a{
+        font-size:22px;
+        justify-content:center;
+    }
+
+    .sidebar nav a{
+        color:transparent;
+    }
+
+    .sidebar nav a i{
+        color:#222;
+    }
+
+    main{
+        margin-left:70px;
+        padding:15px;
+    }
+}
